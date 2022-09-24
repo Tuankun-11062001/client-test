@@ -1,0 +1,86 @@
+.navigation{
+    &_background{
+        position: fixed;
+        left: 0;
+        top:0;
+        right:0;
+        height: 10vh;
+        background-color: $color_white;
+        z-index: 999;
+    }
+    &_context{
+        @include flex(space-between,center);
+        height: inherit;
+        
+        &_logo{
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        &_list{
+            @include flex();
+        }
+        &_item{
+            @include flex(start,center);
+            &_name{
+                font-size: 1.6rem;
+                font-weight: 400;
+            }
+            &_image{
+                width:3rem;
+                height: 3rem;
+                border-radius: 4rem;
+                overflow: hidden;
+                img{
+                    @include image;
+                }
+            }
+            &_moreAction{
+                position: relative;
+                svg{
+                    pointer-events: none;
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    color:$color_gray;
+                }
+            }
+            &_submenu{
+                z-index: 99;
+                &.active{
+                display: block;
+                }
+                display: none;
+                position: absolute;
+                top:100%;
+                left:0;
+                width:17rem;
+                padding:1rem;
+                border-radius: 1rem;
+                background-color: $color_white;
+                &_item{
+                    cursor: pointer;
+                    padding: 0.5rem 0;
+                    font-size: 1.4rem;
+                }
+            }
+        }
+        &_link{
+            font-size: 1.6rem;
+            font-weight: 500;
+            position: relative;
+            @include transition;
+            &.active{
+                color: $color_purple;
+                &:after{
+                    content: '';
+                    position: absolute;
+                    top: 100%;
+                    left:0;
+                    width: 100%;
+                    height: 2px;
+                    background: linear-gradient(40deg,$color_purple,$color_green);
+                    border-radius: 2rem;
+                }
+            }
+        }
+    }
+}

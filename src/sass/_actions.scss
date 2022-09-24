@@ -1,0 +1,115 @@
+.actions{
+    &_title{
+        margin-top: 6rem;
+        font-size: 3rem;
+        color:$color_purple;
+        text-align: center;
+    }
+    &_content{
+        &_ideas{
+            margin-bottom: 3rem;
+            &_title{
+                font-size: 2rem;
+                color:$color_purple;
+                margin-bottom: 2rem;
+            }
+            &_search{
+                width: 60rem;
+                background: $color_white;
+                @include flex(space-between,center);
+                input{
+                    padding:1rem 2rem;
+                    flex:1;
+                    border:none;
+                }
+                &_button{
+                    background: transparent;
+                    border: none;
+                    width: 3rem;
+                    color: $color_gray;
+                    svg{
+                        width: 2rem;
+                        height: 2rem;
+                    }
+                }
+            }
+            &_control{
+                margin-top: 3rem;
+                @include flex();
+                &_button{
+                    padding:1rem 3rem;
+                    background-color: transparent;
+                    border:0.1rem solid $color_gray;
+                    color:$color_gray;
+                    font-size: 1.6rem;
+                    @include transition;
+                    &:hover{
+                        background-color: $color_purple;
+                        color: $color_white;
+                        border: 0.1rem solid $color_purple;
+                    }
+                }
+            }
+            &_list{
+                margin-top:3rem;
+            }
+            &_item{
+                width:60rem;
+                background: $color_white;
+                padding:2rem;
+                border-radius: 2rem;
+                margin:2rem 0;
+                &_head{
+                    @include flex(start,center);
+                    &_image{
+                        width:4rem;
+                        height:4rem;
+                        border-radius: 4rem;
+                        overflow: hidden;
+                        img{
+                            @include image;
+                        }
+                    }
+                    &_detail{
+                        @include flex(start, start,0.5rem,column);
+                        a{
+                            font-size: 1.5rem;
+                            &:first-child{
+                                font-size: 1.8rem;
+                                font-weight: 500;
+                                color:black;
+                            }
+                        }
+                    }
+                    &_button{
+                        margin-left:auto;
+                        border:none;
+                        background: transparent;
+                        color:$color_gray;
+                        svg{
+                            width: 2rem;
+                            height: 2rem;
+                        }
+                    }
+                }
+                &_footer{
+                    margin-top:2rem;
+                    @include flex(space-between,center);
+                    &_item{
+                        @include flex(start,center);
+                        font-size: 1.6rem;
+                        button{
+                            width: max-content;
+                            border:none;
+                            background: transparent;
+                            svg{
+                                width: 2rem;
+                                height: 2rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

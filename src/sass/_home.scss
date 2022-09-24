@@ -1,0 +1,79 @@
+.home{
+    margin-top:6rem;
+    &_feature{
+        &_list{
+            @include flex(start,center,0,row,wrap);
+            margin: 0 -2rem;
+        }
+    }
+    &_posts{
+        margin-top: 6rem;
+     &_list{
+        @include flex(start,center,0,row,wrap);
+        margin: 0 -2rem;
+
+     }
+     &_seemore{
+        margin-top:1rem;
+        @include flex(end,center,1rem);
+        font-size: 1.6rem;
+        color:$color_gray;
+        @include transition;
+        svg{
+            width: 2rem;
+            height: 2rem;
+        }
+        &:hover{
+            color:$color_white;
+        }
+     }
+    }
+
+    &_gift{
+        &_content{
+            @include flex(start,center);
+            background-color:$color_white;
+            border-radius: 2rem;
+        }
+        &_info{
+            flex:1;
+            padding:2rem;
+            &_title{
+                font-size: 2.5rem;
+                color:$color_purple;
+                margin-bottom: 2rem;
+            }
+            &_description{
+                font-size: 1.7rem;
+                color:$color_gray;
+                margin-bottom: 2rem;
+            }
+            &_joinButton{
+                width: max-content;
+                padding:1rem 3rem;
+                border:0.1rem solid $color_gray;
+                color:$color_gray;
+                font-size: 1.7rem;
+                background: transparent;
+                @include transition;
+                &:hover{
+                    border:0.1rem solid $color_purple;
+                    color:$color_white;
+                    background: $color_purple;   
+                }
+            }
+        }
+        &_image_container{
+            flex:1;
+            @include flex(center,center);
+        }
+        &_image{
+            margin-left:2rem;
+            width: 20rem;
+            height: 20rem;
+            img{
+                @include image(contain);
+            }
+        }
+    }
+}
