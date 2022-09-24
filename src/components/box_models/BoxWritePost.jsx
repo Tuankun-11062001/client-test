@@ -3,7 +3,7 @@ import { UseStore, actions } from "../../store";
 import { Editor } from "@tinymce/tinymce-react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { BoxNotification } from "./BoxNotification";
-import * as api from "../../api";
+import { URLDatabase } from "../../api";
 const axios = require("axios");
 export const BoxWritePost = () => {
   const [state, dispatch] = UseStore();
@@ -41,24 +41,24 @@ export const BoxWritePost = () => {
     };
 
     try {
-      const createPost = await api.fetchAPICreatePost(completePost);
-      if (!createPost.data) {
-        dispatch(actions.openNotificationBox());
-        return setMessage("Có điều gì đó xảy ra nè, hãy thử lại nhé !");
-      }
-      dispatch(actions.openNotificationBox());
-      setMessage("Đăng thành công !");
+      // const createPost = await api.fetchAPICreatePost(completePost);
+      // if (!createPost.data) {
+      //   dispatch(actions.openNotificationBox());
+      //   return setMessage("Có điều gì đó xảy ra nè, hãy thử lại nhé !");
+      // }
+      // dispatch(actions.openNotificationBox());
+      // setMessage("Đăng thành công !");
 
-      // await axios
-      //   .post("http://localhost:5000/posts/createPost", completePost)
-      //   .then((res) => {
-      //     if (!res) {
-      //       dispatch(actions.openNotificationBox());
-      //       return setMessage("Có điều gì đó xảy ra nè, hãy thử lại nhé !");
-      //     }
-      //     dispatch(actions.openNotificationBox());
-      //     setMessage("Đăng thành công !");
-      //   });
+      await axios
+        .post(`${URLDatabase}/posts/createPost`, completePost)
+        .then((res) => {
+          if (!res) {
+            dispatch(actions.openNotificationBox());
+            return setMessage("Có điều gì đó xảy ra nè, hãy thử lại nhé !");
+          }
+          dispatch(actions.openNotificationBox());
+          setMessage("Đăng thành công !");
+        });
     } catch (error) {
       dispatch(actions.openNotificationBox());
       setMessage("đang lỗi đâu đó !");
